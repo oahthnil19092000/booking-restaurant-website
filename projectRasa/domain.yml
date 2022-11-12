@@ -1,0 +1,111 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - thank
+  - ask_name
+  - ask_info
+  - ask_infoTable
+  - ask_method
+  - ask_order
+  - ask_price
+  - ask_expensiveFood
+  - ask_cheapestFood
+  - ask_bestFood
+  - ask_worstFood
+  - ask_address
+  - thanhtoan_hinhthuc
+
+responses:
+  utter_greet:
+    - text: "Chào anh(chị)"
+    - text: "Chào mừng quý khách đến với nhà hàng ạ"
+    - text: "Kính chào quý khách"
+
+  utter_goodbye:
+    - text: "Kính chào tạm biệt và mong sớm gặp lại quý khách!"
+    - text: "Kính chào tạm biệt và chúc quý khách một ngày tốt lành!"
+
+  utter_cheer_up:
+    - text: "Đây là một cái gì đó để cổ vũ bạn."
+
+  utter_did_that_help:
+    - text: "Điều đó đã giúp bạn?"
+
+  utter_help:
+    - text: "Tôi có thể giúp gì cho bạn"
+    - text: "Bạn cần gì"
+
+  utter_happy:
+    - text: "Tuyệt vời!"
+    - text: "Thật tuyệt"
+    - text: "Quá tuyệt"
+
+  utter_unhappy:
+    - text: "Xin lỗi, vì sự bất tiện này"
+    - text: "Chúng tôi sẽ rút kinh nghiệm cho lần sau"
+    - text: "Thành thật xin lỗi quý khách"
+
+  utter_sorry:
+    - text: "Em xin lỗi, em chưa hiểu ý muốn của anh(chị) ạ. Anh chị có thể nói lại được không ạ"
+    - text: "Xin lỗi, nhà hàng em đã hết bàn trống rồi ạ"
+    - text: "Thưa quý khách, hiện tại tôi chưa hiểu được yêu cầu của Quý khách."
+
+  utter_iamabot:
+    - text: "Tôi là chatbot, được cung cấp bởi Rasa."
+
+  utter_info:
+    - text: "Món ăn này chế biến từ những nguyên liệu cung cấp dinh dưỡng tốt cho sức khỏe"
+    - text: "Món ăn ngon nhất nhà hàng của chúng tôi"
+    - text: "Được nhiều khách hàng ưa thích"
+    - text: "Món ăn được mua nhiều nhất"
+    - text: "Rất ngon, đậm đà hương vị Việt Nam"
+
+  utter_infoTable:
+    - text: "Còn"
+    - text: "Hiện vẫn còn bàn trống"
+    - text: "Còn nha anh(chị)"
+    - text: "Dạ nhà hàng chúng em còn bàn trống"
+
+  utter_order:
+    - text: "Chọn món ăn -> Thêm vào giỏ hàng -> Điền thông tin đặt hàng -> Nhấn nút đặt"
+
+  utter_method:
+    - text: "Chọn đặt bàn -> Điền thông tin đặt bàn -> Nhấn nút đặt bàn -> Chọn món ăn cho bàn"
+
+  utter_price:
+    - text: "Giá phù hợp với mọi loại đối tượng tiêu dùng"
+
+  utter_expensiveFood:
+    - text: "<expensive-food>"
+
+  utter_cheapestFood:
+    - text: "<cheapest-food>"
+
+  utter_bestFood:
+    - text: "<best-food>"
+
+  utter_worstFood:
+    - text: "<worst-food>"
+
+  utter_thank:
+    - text: "Cảm ơn bạn"
+    - text: "Dạ không có chi đâu ạ!"
+    - text: "Cảm ơn quý khách đã tin tưởng sử dụng dịch vụ của nhà hàng"
+    - text: "Cảm ơn quý khách."
+
+  utter_address:
+    - text: "30/4, Hưng lợi, Ninh Kiều, Cần Thơ"
+
+  utter_thanhtoan:
+    - text: "Thanh toán khi nhận hàng và thanh toán bằng VNPAY"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

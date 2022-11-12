@@ -1,0 +1,41 @@
+<div class="home-page-container">
+    <section class="grid-image-section">
+        <div class="control-grid-image-section">
+            <div class="control-header">
+                <img src="/assets/images/logo.png" class="logo">
+                <div class="title">
+                    {{title}}
+                </div>
+            </div>
+            <div class="content">
+                <p>
+                    Matyud reimagines the wonders of French fare in a space that evokes a bygone era of a boisterous yet
+                    elegant France—all within the heart of Can Tho City.
+                </p>
+                <i>
+                    This is timeless France.
+                </i>
+            </div>
+            <div class="control">
+                <button mat-raised-button routerLink="/customer/menu">Orders Now <mat-icon>arrow_forward</mat-icon>
+                </button>
+            </div>
+        </div>
+        <app-grid-image></app-grid-image>
+    </section>
+    <section>
+        <u class="section-header">Special</u>
+        <app-lists-card-food></app-lists-card-food>
+        <div class="button-section-footer">
+            <button mat-raised-button color="accent" routerLink="/customer/menu">Orders Now <mat-icon>arrow_forward
+                </mat-icon></button>
+        </div>
+
+    </section>
+    <section>
+        <app-grid-content></app-grid-content>
+    </section>
+    <section></section>
+
+
+</div>

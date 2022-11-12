@@ -1,0 +1,35 @@
+<div class="screen">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="sign-up-form">
+        <h1>Sign up</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+            <mat-hint *ngIf="!name.valid">Name is required!</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+            <mat-hint *ngIf="!email.valid">Email is required!</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" formControlName="username">
+            <mat-hint *ngIf="!username.valid">Username is required!</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-hint *ngIf="!password.valid">Password is required!</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Birthday</mat-label>
+            <input matInput type="date" formControlName="birthday">
+            <mat-hint *ngIf="!birthday.valid">Birthday is required!</mat-hint>
+        </mat-form-field>
+        <div class="button-fields">
+            <a routerLink="/login">I have a account!</a>
+            <button mat-raised-button color="primary" [disabled]="!signupForm.valid">Sign up</button>
+        </div>
+
+    </form>
+</div>

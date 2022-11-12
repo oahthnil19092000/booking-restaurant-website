@@ -1,0 +1,320 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+  
+- story: sad path 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_unhappy
+  - intent: affirm
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: info
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_info
+  - action: utter_info
+  - intent: ask_price
+  - action: utter_price
+  - intent: thanhtoan_hinhthuc 
+  - action: utter_thanhtoan
+  - intent: ask_address
+  - action: utter_address
+  - intent: thank
+  - action: utter_goodbye
+
+- story: info 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_info
+  - action: utter_info
+  - intent: ask_price
+  - action: utter_price
+  - intent: thanhtoan_hinhthuc 
+  - action: utter_thanhtoan
+  - intent: ask_address
+  - action: utter_address
+  - intent: thank
+  - action: utter_goodbye
+
+- story: info 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_infoTable
+  - action: utter_infoTable
+  - intent: thank
+  - action: utter_thank
+
+- story: info 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_info
+  - action: utter_info
+  - intent: ask_price
+  - action: utter_price
+  - intent: ask_order
+  - action: utter_order
+  - intent: thank
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: info 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_info
+  - action: utter_info
+  - intent: ask_price
+  - action: utter_price
+  - intent: ask_order
+  - action: utter_order
+  - intent: thank
+  - action: utter_goodbye
+
+- story: info 5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_order
+  - action: utter_order
+  - intent: thank
+  - action: utter_thank
+  
+- story: info 6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_order
+  - action: utter_order
+  - intent: thank
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: Table
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_infoTable
+  - action: utter_infoTable
+  - intent: ask_method
+  - action: utter_method
+  - intent: affirm
+  - action: utter_goodbye
+  
+- story: Table 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_infoTable
+  - action: utter_infoTable
+  - intent: ask_method
+  - action: utter_method
+  - intent: thank
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye
+ 
+- story: Table 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_infoTable
+  - action: utter_infoTable
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Table 2
+  steps:
+  - intent: ask_infoTable
+  - action: utter_infoTable
+  - intent: thank
+  - action: utter_thank
+ 
+- story: address 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_address
+  - action: utter_address
+  - intent: affirm
+  - action: utter_thank
+  
+- story: address 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_address
+  - action: utter_address
+  - intent: thank
+  - action: utter_goodbye
+  
+- story: address 3
+  steps:
+  - intent: ask_address
+  - action: utter_address
+  - intent: thank
+  - action: utter_thank
+
+- story: httt
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: thanhtoan_hinhthuc 
+  - action: utter_thanhtoan
+  - intent: thank
+  - action: utter_thank
+  
+- story: httt 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_info
+  - action: utter_info
+  - intent: thanhtoan_hinhthuc 
+  - action: utter_thanhtoan
+  - intent: thank
+  - action: utter_thank
+  
+- story: httt 2
+  steps:
+  - intent: thanhtoan_hinhthuc 
+  - action: utter_thanhtoan
+  - intent: thank
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: food
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_expensiveFood
+  - action: utter_expensiveFood
+  - intent: thank
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: food1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_expensiveFood
+  - action: utter_expensiveFood
+  - intent: ask_cheapestFood
+  - action: utter_cheapestFood
+  - intent: ask_bestFood
+  - action: utter_bestFood
+  - intent: thank
+  - action: utter_thank
+  
+- story: food2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_expensiveFood
+  - action: utter_expensiveFood
+  - intent: ask_cheapestFood
+  - action: utter_cheapestFood
+  - intent: ask_bestFood
+  - action: utter_bestFood
+  - intent: ask_worstFood
+  - action: utter_worstFood
+  - intent: goodbye
+  - action: utter_goodbye
+ 
+- story: food3
+  steps:
+  - intent: ask_expensiveFood
+  - action: utter_expensiveFood
+  
+- story: food4
+  steps:
+  - intent: ask_expensiveFood
+  - action: utter_expensiveFood
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: food5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_cheapestFood
+  - action: utter_cheapestFood
+  - intent: thank
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: food6
+  steps:
+  - intent: ask_cheapestFood
+  - action: utter_cheapestFood
+
+- story: food7
+  steps:
+  - intent: ask_bestFood
+  - action: utter_bestFood
+  
+- story: food8
+  steps:
+  - intent: ask_worstFood
+  - action: utter_worstFood
+  
+- story: food9
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_cheapestFood
+  - action: utter_cheapestFood
+
+- story: food10
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_bestFood
+  - action: utter_bestFood
+  
+- story: food11
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_worstFood
+  - action: utter_worstFood

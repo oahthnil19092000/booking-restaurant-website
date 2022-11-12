@@ -1,0 +1,28 @@
+h1 {
+  font-weight: 600;
+}
+.dialog-content {
+  display: flex;
+
+  img {
+    width: 400px;
+  }
+  .infomation-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 20px;
+    .infomation {
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+      .price {
+        font-size: 25px;
+        font-weight: 500;
+        color: #0d47a1;
+        padding: 20px 0;
+      }
+    }
+  }
+}

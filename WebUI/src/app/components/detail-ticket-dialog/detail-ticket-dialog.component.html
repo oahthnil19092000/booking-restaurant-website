@@ -1,0 +1,92 @@
+<h1 mat-dialog-title>Detail</h1>
+<div mat-dialog-content class="dialog-content">
+    <div class="infomation">
+        <table>
+            <tr>
+                <td>Bill No:</td>
+                <td>{{ticketInfo!= null && ticketInfo.bill != null ? ticketInfo.bill.bill_number : ''}}</td>
+            </tr>
+            <tr>
+                <td>Customer:</td>
+                <td>{{ticketInfo!= null && ticketInfo.customer != null ? ticketInfo.customer.name : ''}}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>{{ticketInfo!= null ? ticketInfo.customer_phone : ''}}</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>{{ticketInfo!= null ? ticketInfo.customer_address : ''}}</td>
+            </tr>
+            <tr>
+                <td>Received Date:</td>
+                <td>{{ticketInfo!= null ? renderDate(ticketInfo.received_date) : ''}}<br> {{ticketInfo!= null ?
+                    renderTime(ticketInfo.received_date) : ''}}</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>Discount:</td>
+                <td>{{discount!= null ? discount.name : ''}}</td>
+            </tr>
+            <tr>
+                <td>Type Table:</td>
+                <td>{{ticketInfo!= null && ticketInfo.table != null ? ticketInfo.table.name : ''}}</td>
+            </tr>
+            <tr>
+                <td>Type Party:</td>
+                <td>{{ticketInfo!= null && ticketInfo.type_party != null ? ticketInfo.type_party.name : ''}}</td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>{{ticketInfo!= null ? ticketInfo.table != null && ticketInfo.table.id == 0 ?
+                    renderStatus(ticketInfo.status) :
+                    renderStatusForReverse(ticketInfo.status) : ""}}</td>
+            </tr>
+            <tr>
+                <td>Comment of customer:</td>
+                <td>
+                    {{ticketInfo!= null ? renderScore(ticketInfo.comment) : ""}}
+                    <br>
+                    {{ticketInfo!= null ? renderComment(ticketInfo.comment) : ""}}
+                </td>
+            </tr>
+            <tr>
+                <td>Feedback of admin:</td>
+                <td>
+                    <div *ngIf=" ticketInfo!= null && ticketInfo.feedback != null && ticketInfo.feedback.id > 0">
+                        {{renderAdmin(ticketInfo.admin)}}
+                        <br>
+                        {{renderFeedback(ticketInfo.feedback)}}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="detail">
+        <table class="table-detail">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr *ngFor="let foodItem of foodList.rows; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{foodItem.food.name}}</td>
+                <td>{{formatNumber(foodItem.food.price)}}</td>
+                <td>{{foodItem.quantity}}</td>
+                <td>{{formatNumber(foodItem.food.price,foodItem.quantity)}}</td>
+            </tr>
+            <tr>
+                <th colspan="4" style="border-top:3px">Discount</th>
+                <th style="text-align: center; border-top:3px">{{renderDiscount(foodList.rows)}}</th>
+            </tr>
+            <tr>
+                <th colspan="4" style="border-top:3px">Total</th>
+                <th style="text-align: center; border-top:3px">{{sumTotal(foodList.rows)}}</th>
+            </tr>
+        </table>
+    </div>
+</div>

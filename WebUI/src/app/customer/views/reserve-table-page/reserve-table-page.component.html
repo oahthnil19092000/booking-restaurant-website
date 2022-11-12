@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Reserve a Table</h1>
+    <div class="content">
+        <div class="slider">
+            <ng-image-slider [images]="imageObject" #nav [imageSize]="{
+                width: 730, height: 400, space: 0
+            }"></ng-image-slider>
+        </div>
+        <form [formGroup]="reserveForm" (ngSubmit)="onSubmit()" class="reserve-form">
+            <div class="form-body" *ngIf="ticket?.table_id == 1">
+                <div class="form-item-one">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Chose seater table</mat-label>
+                        <mat-select formControlName="table_id">
+                            <mat-option *ngFor="let table of tablesList" [value]="table.id">
+                                {{table.name}}</mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="!tableId.valid">Seater table is required!</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Chose type of party</mat-label>
+                        <mat-select formControlName="type_party_id">
+                            <mat-option value="0">No type of party</mat-option>
+                            <mat-option *ngFor="let typeParty of typePartyList" [value]="typeParty.id">
+                                {{typeParty.name}}</mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="!typePartyId.valid">Type of party is required!</mat-hint>
+                    </mat-form-field>
+                </div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Date [MM/DD/YYYY]</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="received_date" [min]="minDate" />
+                    <mat-hint *ngIf="!receivedDate.valid">MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <h1 *ngIf="ticket?.table_id != 1">Go to Menu now! </h1>
+            <div class="button-fields">
+                <button mat-raised-button type="button" color="accent" routerLink="/customer/menu">Order Now</button>
+                <button mat-raised-button type="submit" color="primary" *ngIf="ticket?.table_id == 1"
+                    [disabled]="!reserveForm.valid">
+                    Reserve a Table
+                </button>
+            </div>
+        </form>
+    </div>
+    <app-order-for-table></app-order-for-table>
+</div>

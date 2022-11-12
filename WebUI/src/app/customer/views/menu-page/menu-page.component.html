@@ -1,0 +1,40 @@
+<div class="card-container">
+    <u class="header-menu">Menu</u>
+    <div class="action-menu">
+        <mat-form-field appearance="standard">
+            <mat-label>Search Name</mat-label>
+            <input matInput placeholder="Search Name" #input (blur)="search(input)">
+            <mat-icon matSuffix (click)="search(input)">search</mat-icon>
+        </mat-form-field>
+        <div class="spacer"></div>
+        <mat-form-field appearance="standard">
+            <mat-label>Ingredient</mat-label>
+            <input type="text" matInput [formControl]="myControl" #inputIngredient [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option.name}}
+                </mat-option>
+            </mat-autocomplete>
+            <mat-icon matSuffix (click)="searchIngredient()">search</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="listFoods?.rows && listFoods?.rows.length > 0" class="food-card-container">
+        <mat-card class="food-card" *ngFor="let food of listFoods?.rows;let i =index"
+            (click)="selectItem(listFoods?.rows[i])">
+            <mat-card-title-group>
+                <div class="food-image">
+                    <img [src]="food.image_url">
+                </div>
+                <div class="food-infomation">
+                    <mat-card-title>{{food.name}}</mat-card-title>
+                    <mat-card-subtitle>{{formatNumber(food.price)}}</mat-card-subtitle>
+                </div>
+            </mat-card-title-group>
+        </mat-card>
+    </div>
+
+    <mat-paginator #paginator [length]="listFoods?.count" [pageSize]="12" [pageSizeOptions]="[12]" showFirstLastButtons
+        (page)="loadPageData($event)" aria-label="Select page">
+    </mat-paginator>
+</div>

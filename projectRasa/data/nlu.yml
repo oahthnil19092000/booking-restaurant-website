@@ -1,0 +1,240 @@
+version: "2.0"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - chào
+      - hi
+      - xin chào
+      - chào bạn
+      - hello
+      - hey
+      - mình có vài câu hỏi
+      - có ai giúp mình không
+      - bạn ơi
+      - anh ơi
+      - chị ơi
+      - cháu ơi
+      - em gì ơi
+      - chào 
+      - có ai ở đây không?
+
+  - intent: goodbye
+    examples: |
+      - tạm biệt
+      - chào tạm biệt
+      - chào tạm biệt em
+      - tạm biệt em
+      - tạm biệt em nhé
+      - hẹn gặp lại bạn
+      - hẹn gặp lại sau
+      - hẹn gặp lại
+      - bái bai
+
+  - intent: affirm
+    examples: |
+      - Vâng
+      - thật
+      - tất nhiên rồi
+      - nghe hay đấy
+      - Chính xác
+      - dạ
+      - ô kê
+      - ừ
+
+  - intent: deny
+    examples: |
+      - không
+      - không bao giờ
+      - tôi không nghĩ vậy
+      - không thích điều đó
+      - Không đời nào
+      - không hẳn vậy
+      - không thể nào
+
+  - intent: mood_great
+    examples: |
+      - hoàn hảo
+      - Tuyệt
+      - kinh ngạc
+      - cảm giác như một vị vua
+      - Tuyệt vời
+      - Tôi đang cảm thấy rất tốt
+      - tôi rất tuyệt
+      - Tôi tuyệt vời
+      - Tôi sẽ cứu thế giới
+      - cực kỳ tốt
+      - quá hoàn hảo
+      - tốt quá
+      - rất hoàn hảo
+      - Rất ngon
+      - Rất tốt
+      - Cực kì tốt
+  - intent: mood_unhappy
+    examples: |
+      - ngày của tôi thật kinh khủng
+      - Tôi buồn
+      - Tôi cảm thấy cách phục vụ không được tốt
+      - Tôi thất vọng về nhà hàng
+      - siêu buồn
+      - Tôi rất buồn về thái độ của nhân viên
+      - buồn
+      - rất buồn
+      - không vui
+      - không tốt
+      - cách phục vụ không tốt lắm
+      - buồn vô cùng
+      - buồn quá
+      - tệ
+      - quá tệ
+      - thật tồi tệ
+      - Không hài lòng với thái độ của nhân viên
+      - Không tôn trọng khách hàng
+      - phục vụ không tốt
+
+  - intent: bot_challenge
+    examples: |
+      - bạn là robot?
+      - Bạn có phải là con người?
+      - tôi đang nói chuyện với một con bot?
+      - Tôi đang nói chuyện với một con người?
+
+  - intent: thank
+    examples: |
+      - thanks
+      - cám ơn chị(anh)
+      - ok
+      - cảm ơn em
+      - cảm ơn em nhiều nhé
+      - cảm ơn rất nhiều
+      - cám ơn
+
+  - intent: ask_name
+    examples: |
+      - bạn tên gì
+      - tên gì
+      - chị tên gì
+      - anh tên gì
+      - tên của bạn là gì
+      - tên của chị là gì
+      - tên của anh là gì
+      - cho mình hỏi tên nhé
+      - mình muốn biết tên bạn
+      - mình muốn tiện xưng hộ hơn, cho mình biết tên nhé
+      - để tiện xưng hộ thì tên bạn là gì
+      - cho em xin tên của anh ạ
+      - cho em xin tên của chị ạ
+      - được biết tên bạn thì tốt nhỉ
+      - vui lòng cho mình biết tên nhé
+      - xin phép hỏi tên của bạn
+      - vậy thì tên bạn là gì
+      - tên bạn trong tiếng việt là gì
+      - bạn có vui lòng cho mình biết tên được không
+      - chúng ta nên biết tên nhau nhỉ?
+      - em tên là gì thế
+      - tên em là gì
+      - tên em 
+      - tên bạn 
+      - bạn tên là gì 
+      - bạn tên gì thế
+      - em tên gì
+
+  - intent: ask_info
+    examples: |
+      - xin thông tin của món ăn này
+      - menu nhà hàng
+      - menu món ăn của nhà hàng
+      - nguyên liệu của món ăn này gồm những gì
+      - cho xin thông tin của món ăn này
+      - thông tin của món này
+
+  - intent: ask_infoTable
+    examples: |
+      - còn bàn trống không
+      - bàn trống còn không bạn
+      - còn bàn trống cho tầm 4 người ăn không
+      - bàn dành cho 5 người còn không
+
+  - intent: ask_method
+    examples: |
+      - làm sao để đặt bàn
+      - đặt bàn làm sao?
+      - cách thức đặt bàn ăn
+      - đặt bàn ?
+      - đặt bàn như thế nào?
+      - đặt bàn online
+      - cách đặt bàn trước
+
+  - intent: ask_order
+    examples: |
+      - làm sao đặt món ăn
+      - đặt món ăn sao
+      - cách để đặt món ăn
+      - đặt món ăn
+      - đặt đồ ăn mang về
+      - đặt món ăn như thế nào
+
+  - intent: ask_price
+    examples: |
+      - nhà hàng phụ hợp với đối tượng nào
+      - nhà hàng phụ hợp đối tượng nào
+      - phụ hợp đối tượng nào
+      - đối tượng nào phụ hợp
+      - đối tượng nào
+
+  - intent: ask_expensiveFood
+    examples: |
+      - món ăn mắc nhất?
+      - món mắc nhất?
+      - mắc nhất?
+      - món ăn đắt nhất?
+      - món đắt nhất?
+      - đắt nhất?
+
+  - intent: ask_cheapestFood
+    examples: |
+      - món ăn rẻ nhất?
+      - món rẻ nhất?
+      - rẻ nhất?
+
+  - intent: ask_bestFood
+    examples: |
+      - món ăn ngon nhất?
+      - món ăn nhiều người đặt nhất?
+      - món đặt nhiều nhất?
+      - món nhiều người ăn nhất?
+      - món nhiều người đặt nhất?
+      - món ngon nhất?
+      - ngon nhất?
+
+  - intent: ask_worstFood
+    examples: |
+      - món ăn dở nhất?
+      - món ăn tệ nhất?
+      - món tệ nhất?
+      - món dở nhất?
+      - tệ nhất?
+      - dở nhất?
+
+  - intent: ask_address
+    examples: |
+      - nhà hàng mình địa chỉ ở đâu
+      - địa chỉ ở đâu
+      - nhà hàng mở ở đâu
+      - bán ở đâu
+      - địa chỉ
+      - cho mình xin địa chỉ của nhà hàng
+      - ở đâu
+      - xin chỗ bán
+      - nhà hàng ở đâu
+      - địa chỉ nhà hàng
+
+  - intent: thanhtoan_hinhthuc
+    examples: |
+      - thanh toán sao
+      - cách nào để thanh toán
+      - thanh toán hóa đơn thế nào
+      - làm sao để thanh toán
+      - hình thức thanh toán 
+      - cách thức thanh toán hóa đơn

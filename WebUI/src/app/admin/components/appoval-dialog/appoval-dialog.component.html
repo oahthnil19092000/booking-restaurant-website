@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Approve Delivery</h1>
+<div mat-dialog-content class="dialog-content">
+    <form [formGroup]="approvalForm" (ngSubmit)="onSubmit(closeButton)" class="comment-form">
+        <div class="form-content">
+            <mat-form-field appearance="fill">
+                <mat-label>Discount</mat-label>
+                <mat-select formControlName="discount_id">
+                    <mat-option value="0">No Discount</mat-option>
+                    <mat-option *ngFor="let discountItem of discountList.rows" [value]="discountItem.id">
+                        {{discountItem.name}} ({{renderDiscountDetail(discountItem)}})</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="form-action">
+                <button mat-raised-button color="accent" #closeButton mat-dialog-close>Cancel</button>
+                <button mat-raised-button color="primary" [disabled]="!approvalForm.valid">Yes</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,12 @@
+<app-header [title]="title" [userInfo]="userInfo"></app-header>
+<main class="container">
+    <div class="content">
+        <app-dashboard></app-dashboard>
+        <section class="section">
+            <router-outlet></router-outlet>
+            <div></div>
+        </section>
+    </div>
+</main>
+
+<app-footer [title]="title"></app-footer>

@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{foodDetail.food.name}}</h1>
+<div mat-dialog-content>
+    <div class="dialog-content">
+        <img [src]="foodDetail.food.image_url" [alt]="foodDetail.food.name">
+        <div class="infomation-container">
+            <div class="infomation">
+                <div class="price" color="primary">
+                    {{formatNumber(foodDetail.food.price)}}
+                </div>
+                <div class="title">
+                    Main Ingredient
+                </div>
+                <ul class="main-ingredient-detail">
+                    <li *ngFor="let ingredient of foodDetail.mainIngredientDetail">
+                        {{ingredient.name}}: {{ingredient.quantity}} {{ingredient.unit}}
+                    </li>
+                </ul>
+            </div>
+            <div class="order-form">
+                <form (ngSubmit)="onSubmit()" [formGroup]="orderForm">
+                    <input matInput type="number" hidden formControlName="food_id">
+                    <input matInput type="number" hidden formControlName="ticket_id">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Quantity</mat-label>
+                        <input matInput type="number" min="1" max="50" formControlName="quantity">
+                        <mat-hint *ngIf="!quantity.valid">Quantity is required!</mat-hint>
+                    </mat-form-field>
+                    <div>
+                        <button *ngIf="ticketReserveId != 0 && ticketReserveTableId != 1 && ticketReserveTableId != 0"
+                            mat-raised-button color="accent" [disabled]="!orderForm.valid" type="button"
+                            (click)="orderForTable()" mat-dialog-close="true">Prepare for the table</button>
+                        <button mat-raised-button color="primary" [disabled]="!orderForm.valid" type="button"
+                            (click)="orderToHome()" mat-dialog-close="true">Add to cart</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

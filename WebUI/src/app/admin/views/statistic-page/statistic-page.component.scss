@@ -1,0 +1,50 @@
+:host {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  .chart-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .card-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    mat-card {
+      margin-bottom: 20px;
+      mat-card-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .quantity {
+          position: absolute;
+          font-size: 25px;
+          top: calc(50% - 9px);
+          width: 100px;
+          text-align: center;
+          font-weight: 500;
+        }
+        .primary {
+          color: #0d47a1;
+        }
+        .accent {
+          color: #f44336;
+        }
+        .warn {
+          color: #f57f17;
+        }
+        .content {
+          width: 300px;
+          padding-left: 20px;
+          h2 {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}

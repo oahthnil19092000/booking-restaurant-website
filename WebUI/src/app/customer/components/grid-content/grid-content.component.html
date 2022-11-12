@@ -1,0 +1,10 @@
+<div class="grid-content">
+    <div *ngFor="let content of contents" class="grid-content-items">
+        <h1>{{content.title}}</h1>
+        <div>{{content.content}}</div>
+        <div class="button-control-content">
+            <button mat-raised-button [routerLink]="content.routerLink">{{content.label}} <mat-icon>arrow_forward
+                </mat-icon></button>
+        </div>
+    </div>
+</div>

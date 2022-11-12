@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 30px;
+  padding-top: 0;
+  background-color: palegoldenrod;
+  h1 {
+    margin: 50px auto;
+    font-size: 40px;
+    font-weight: 500;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .slider {
+      max-width: 50%;
+      min-width: 50%;
+    }
+    .reserve-form {
+      padding: 0 30px;
+      margin: 0 30px;
+      border-radius: 5px;
+      background-color: whitesmoke;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      .form-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .form-item-one {
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+      .button-fields {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 20px;
+      }
+    }
+  }
+  app-order-for-table {
+    width: 100%;
+  }
+}

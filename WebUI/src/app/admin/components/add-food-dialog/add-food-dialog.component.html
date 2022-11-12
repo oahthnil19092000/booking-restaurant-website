@@ -1,0 +1,77 @@
+<h1 mat-dialog-title class="title" *ngIf="isCreate">Add Food</h1>
+<h1 mat-dialog-title class="title" *ngIf="!isCreate">Update Food</h1>
+<div mat-dialog-content class="dialog-content">
+    <div class="screen">
+        <form [formGroup]="addFoodForm" (ngSubmit)="onSubmit(closeButton)" class="login-form">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="name">
+                <mat-hint *ngIf="!name.valid">Name is required!</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Price</mat-label>
+                <input matInput type="text" formControlName="price">
+                <mat-hint *ngIf="!price.valid">Price is required!</mat-hint>
+            </mat-form-field>
+            <mat-slide-toggle ngModel formControlName="is_url" [(ngModel)]="allowURL" (change)="allowUseURL()">Use
+                URL
+            </mat-slide-toggle>
+
+            <mat-form-field appearance="fill" *ngIf="!allowURL">
+                <mat-label>File</mat-label>
+                <input type="file" accept=".jpeg,.jpg,.png" hidden #inputFile (change)="showImage(inputFile)" />
+                <mat-icon matSuffix class="mr-2" (click)="focusInputFile(inputFile)">cloud_upload</mat-icon>
+                <input matInput type="text" formControlName="file_base64" (click)="focusInputFile(inputFile)">
+                <mat-hint *ngIf="file_base64.value == '' && is_url.value == false">File is required!</mat-hint>
+                <!-- <mat-hint class="mat-form-field-hint-end">JPEG / JPG / PNG</mat-hint> -->
+            </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="allowURL">
+                <mat-label>URL</mat-label>
+                <input matInput type="text" formControlName="url" (blur)="generateImage()">
+                <mat-hint *ngIf="url.value == '' && is_url.value == true">URL is required!</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Select Main Ingredient (One or more)</mat-label>
+                <mat-select (valueChange)="choiseMainIngredient($event)">
+                    <mat-option value="">Option</mat-option>
+                    <mat-option *ngFor="let mainIngredientItem of mainIngredientList;let i = index" [value]="i">
+                        {{mainIngredientItem.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="button-fields">
+                <button mat-raised-button color="accent" #closeButton mat-dialog-close>Cancle</button>
+                <button mat-raised-button color="primary"
+                    [disabled]="!addFoodForm.valid || !mainIngredientForm.valid || ((file_base64.value == '' && is_url.value == false) || (url.value == '' && is_url.value == true))">
+                    {{isCreate ? 'Create Food' : 'Update Food'}}
+                </button>
+            </div>
+        </form>
+        <form [formGroup]="mainIngredientForm" class="container-main-ingredient-list">
+            <h1>Main Ingredient List</h1>
+            <div class="main-ingredient-item" *ngFor=" let item of mainIngredientListChoised">
+                <span>
+                    {{getNameOfMainIngredient(item)}}
+                </span>
+                <input type="id" matInput hidden
+                    [value]="mainIngredientForm.get(mainIngredientList[item].name.replace(' ', '').toLowerCase() +'_id')?.value"
+                    formControlName="{{mainIngredientList[item].name.replace(' ', '').toLowerCase()}}_id">
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input type="number" matInput
+                        [value]="mainIngredientForm.get(mainIngredientList[item].name.replace(' ', '').toLowerCase() +'_quantity')?.value"
+                        formControlName="{{mainIngredientList[item].name.replace(' ', '').toLowerCase()}}_quantity">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Unit</mat-label>
+                    <input type="text" matInput
+                        [value]="mainIngredientForm.get(mainIngredientList[item].name.replace(' ', '').toLowerCase() +'_unit')?.value"
+                        formControlName="{{mainIngredientList[item].name.replace(' ', '').toLowerCase()}}_unit">
+                </mat-form-field>
+                <mat-icon (click)="removeChoise(item)">close</mat-icon>
+            </div>
+        </form>
+        <img class="image-draw"
+            [src]="imageDraw != '' ? imageDraw : 'https://i.pinimg.com/originals/c3/8c/41/c38c412d6b948816ee0fac4f1382064e.jpg'"
+            [alt]="name.value">
+    </div>
+</div>

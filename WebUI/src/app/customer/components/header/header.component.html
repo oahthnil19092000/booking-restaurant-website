@@ -1,0 +1,35 @@
+<mat-toolbar>
+    <div class="title" routerLink="/customer"><img src="/assets/images/logo.png" class="logo">{{title}}</div>
+    <span class="spacer" id="spacer"></span>
+    <button mat-button routerLink="/customer/menu">Menu</button>
+    <button mat-button [matMenuTriggerFor]="ordered">Cart</button>
+    <mat-menu #ordered="matMenu">
+        <button mat-menu-item routerLink="/customer/cart">
+            Cart
+            <span class="order-label" *ngIf="orderingCount > 0" [matBadge]="orderingCount">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+        </button>
+        <button mat-menu-item routerLink="/customer/cart-history"><span class="order-label">Order
+                history</span></button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="bookTable">Reserved Tables</button>
+    <mat-menu #bookTable="matMenu">
+        <button mat-menu-item routerLink="/customer/reserse-table">Reserve a Table</button>
+        <button mat-menu-item routerLink="/customer/reserse-table-history">Reserved Tables</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="account">Account</button>
+    <mat-menu #account="matMenu">
+        <div mat-menu-item style="display: flex;">
+            <div id="user-avatar">
+                <mat-icon>person</mat-icon>
+            </div>
+            <div id="user-name">
+                {{userInfo?.name}}
+            </div>
+        </div>
+        <button mat-menu-item routerLink="/customer/user-infomation">User Infomation</button>
+        <button mat-menu-item routerLink="/customer/change-password">Change Password</button>
+        <button mat-menu-item (click)="logout()">Log out</button>
+    </mat-menu>
+</mat-toolbar>

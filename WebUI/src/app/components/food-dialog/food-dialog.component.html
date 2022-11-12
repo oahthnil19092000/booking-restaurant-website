@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>{{foodDetail.food.name}}</h1>
+<div mat-dialog-content>
+    <div class="dialog-content">
+        <img [src]="foodDetail.food.image_url" [alt]="foodDetail.food.name">
+        <div class="infomation-container">
+            <div class="infomation">
+                <div class="price" color="primary">
+                    {{formatNumber(foodDetail.food.price)}}
+                </div>
+                <div class="title">
+                    Main Ingredient
+                </div>
+                <ul class="main-ingredient-detail">
+                    <li *ngFor="let ingredient of foodDetail.mainIngredientDetail">
+                        {{ingredient.name}}: {{ingredient.quantity}} {{ingredient.unit}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

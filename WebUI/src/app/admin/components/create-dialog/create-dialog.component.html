@@ -1,0 +1,26 @@
+<h1 mat-dialog-title *ngIf="data.for == 'ingredient' && data.id == 0">Create New Ingredient</h1>
+<h1 mat-dialog-title *ngIf="data.for == 'table' && data.id == 0">Create New Table</h1>
+<h1 mat-dialog-title *ngIf="data.for == 'type-party' && data.id == 0">Create New Type Party</h1>
+<h1 mat-dialog-title *ngIf="data.for == 'ingredient' && data.id > 0">Update Ingredient</h1>
+<h1 mat-dialog-title *ngIf="data.for == 'table' && data.id > 0">Update Table</h1>
+<h1 mat-dialog-title *ngIf="data.for == 'type-party' && data.id > 0">Update Type Party</h1>
+<div mat-dialog-content class="dialog-content">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit(closeButton)" class="comment-form">
+        <div class="form-content">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="name">
+                <mat-hint *ngIf="!name.valid">Name is required!</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill" *ngIf="data.for == 'table'">
+                <mat-label>Number of seat</mat-label>
+                <input matInput type="text" formControlName="number_of_seat">
+                <mat-hint *ngIf="!number_of_seat.valid">Number of seat is required!</mat-hint>
+            </mat-form-field>
+            <div class="button-action">
+                <button mat-raised-button color="accent" #closeButton mat-dialog-close>Cancel</button>
+                <button mat-raised-button color="primary" [disabled]="!createForm.valid">Yes</button>
+            </div>
+        </div>
+    </form>
+</div>

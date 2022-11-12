@@ -1,0 +1,72 @@
+.card-container {
+  .header-menu {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  .action-menu {
+    display: flex;
+    justify-content: flex-end;
+    .spacer {
+      width: 20px;
+    }
+    mat-form-field {
+      width: 300px;
+      background: white;
+      padding: 0 20px;
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  background: palegoldenrod;
+  padding-top: 45px;
+  padding-bottom: 15px;
+  .food-card-container {
+    min-height: 565px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    .food-card {
+      display: flex;
+    }
+    mat-card {
+      width: 20%;
+      margin: 0 1%;
+      margin-top: 30px;
+      mat-card-title-group {
+        display: flex;
+        .food-image {
+          width: 50%;
+          img {
+            width: 100%;
+          }
+        }
+        .food-infomation {
+          width: 49%;
+          padding-left: 1%;
+          mat-card-title {
+            font-size: 18px;
+          }
+          mat-card-subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    mat-card:hover {
+      box-shadow: 0 6px 12px black;
+    }
+  }
+
+  mat-paginator {
+    margin-top: 25px;
+    width: 100%;
+  }
+}

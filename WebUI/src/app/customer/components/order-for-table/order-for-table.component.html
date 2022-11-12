@@ -1,0 +1,31 @@
+<section>
+    <div class="cart-container">
+        <h1>Order for table</h1>
+        <div class="cart-infomation">
+            <div class="order-1">
+                <div class="list" *ngFor="let foodItem of foodList.rows; let i = index">
+                    <div class="infomation">
+                        <img [src]="foodItem.food.image_url" [alt]="foodItem.food.name">
+                        <div class="spacer"></div>
+                        <div class="name-and-price">
+                            <h2>
+                                {{foodItem.food.name}}
+                            </h2>
+                            <div class="spacer"></div>
+                            <mat-icon>close</mat-icon>
+                            <h2>
+                                <input type="number" name="quantity" id="quantity" [value]="foodItem.quantity" min="1"
+                                    max="100" (change)="changeQuantity($event, foodItem.food.id)">
+                            </h2>
+                        </div>
+                        <h2 class="total">
+                            {{formatNumber(foodItem.food.price,foodItem.quantity)}}
+                        </h2>
+                        <mat-icon (click)="deleteIteminCart(foodItem.food.id)">delete</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

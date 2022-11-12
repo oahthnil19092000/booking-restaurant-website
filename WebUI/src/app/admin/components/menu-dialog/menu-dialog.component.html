@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Menu</h1>
+<div mat-dialog-content class="dialog-content">
+    <div class="action-table">
+        <mat-form-field appearance="standard">
+            <mat-label>Search Name</mat-label>
+            <input matInput placeholder="Search Name" #input (blur)="search(input)">
+            <mat-icon matSuffix (click)="search(input)">search</mat-icon>
+        </mat-form-field>
+        <div class="spacer"></div>
+        <div class="action-button">
+
+        </div>
+    </div>
+    <table mat-table [dataSource]="dataSource" #table matSort (matSortChange)="announceSortChange($event)">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id"> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by price"> Price
+            </th>
+            <td mat-cell *matCellDef="let element"> {{formatNumber(element.price)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="order">
+            <th mat-header-cell *matHeaderCellDef> Order
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <input type="number" #quantity value="0" max="20" style="margin: 0 10px; width:40px">
+                <button mat-raised-button color="accent" (click)="selectItem(element.id, quantity)">Order</button>
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data"</td>
+        </tr>
+    </table>
+
+    <mat-paginator #paginator [length]="listFoods?.count" [pageSize]="10" [pageSizeOptions]="[10]" showFirstLastButtons
+        (page)="loadPageData($event)" aria-label="Select page">
+    </mat-paginator>
+</div>

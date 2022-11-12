@@ -1,0 +1,50 @@
+<div class="chart-group">
+    <app-chart-doughnut></app-chart-doughnut>
+    <app-chart-line></app-chart-line>
+</div>
+
+<div class="card-group">
+    <mat-card>
+        <mat-card-content>
+            <mat-progress-spinner class="example-margin" color="primary" mode="determinate" value="100">
+            </mat-progress-spinner>
+            <div class="quantity primary"></div>
+            <div class="content">
+                <h2>{{formatNumber(totolRevenue)}}</h2>
+                <div>Total monthly revenue</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-content>
+            <mat-progress-spinner class="example-margin" color="warn" mode="determinate" value="100">
+            </mat-progress-spinner>
+            <div class="quantity warn"> {{theBestSellingProduct!=null ? theBestSellingProduct.count : ""}}</div>
+            <div class="content">
+                <h2>{{theBestSellingProduct!=null ? theBestSellingProduct.name : ""}}</h2>
+                <div>Best - selling product</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-content>
+            <mat-progress-spinner class="example-margin" color="primary" mode="determinate" value="100">
+            </mat-progress-spinner>
+            <div class="quantity primary"> {{theMostBookedTableType != null ? theMostBookedTableType.count : ""}}</div>
+            <div class="content">
+                <h2>{{theMostBookedTableType != null ? theMostBookedTableType.name : ""}}</h2>
+                <div>Most booked table type</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-content>
+            <mat-progress-spinner class="example-margin" color="accent" mode="determinate" value="100">
+            </mat-progress-spinner>
+            <div class="quantity accent"> {{numberOfCustomer}}</div>
+            <div class="content">
+                <h2>Number of customers</h2>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

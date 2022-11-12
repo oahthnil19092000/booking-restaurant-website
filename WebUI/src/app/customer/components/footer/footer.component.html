@@ -1,0 +1,27 @@
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-item">
+            <div class="footer-contact-address">
+                <mat-icon class="location-icon"> location_on</mat-icon>
+                <div class="contact-info">
+                    <h1>Contact Infomation</h1>
+                    <p><b>Phone:</b>0349991010</p>
+                    <p><b>Address:</b> 30/4 Street, Hung Loi Ward, Ninh Kieu District, Can Tho City</p>
+                    <p>{{title}} accept online table reservation and door-to-door delivery, support purchase and receive
+                        goods directly at the restaurant.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="copyright-content">
+                <h5>© 2022 - {{title}} - {{title.replace(' ','').toLowerCase()}}.vn</h5>
+            </div>
+        </div>
+    </div>
+    <app-chat-bot *ngIf="isShowChatBot"></app-chat-bot>
+    <div class="go-top-icon">
+        <img width="60" height="60"
+            src="assets/images/chatbot-icon-concept-chat-bot-chatterbot-robot-virtual-assistance-website_123447-1615.png"
+            alt="chat bot" (click)="isShowChatBot = !isShowChatBot">
+    </div>
+</footer>

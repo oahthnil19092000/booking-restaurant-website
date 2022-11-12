@@ -1,0 +1,45 @@
+--Structures
+sequelize model:generate --name <table_name> --attributes <column_1> : <type_column_1>, <column_2> : <type_column_2>, ...
+--Run Migrate
+sequelize db:migrate 
+--make Migrate and Model
+
+--Seeder Data
+sequelize db:seed:all  
+
+--Users
+sequelize model:generate --name Users --attributes name:string, username:string, password:string, email:string, birthday:date, is_admin:boolean, status:integer, refreshToken:string
+
+--MainIngredients
+sequelize model:generate --name MainIngredients --attributes name:string, status:boolean
+
+--Table
+sequelize model:generate --name Tables --attributes name:string, number_of_seat:integer, status:integer
+
+--TypeOfParty
+sequelize model:generate --name TypesOfParty --attributes name:string
+
+--Foods
+sequelize model:generate --name Foods --attributes  name:string, price:integer, image_url:string, status:boolean
+
+--MainIngredientDetails
+sequelize model:generate --name MainIngredientDetails --attributes food_id:integer, main_ingredient_id:integer, quantity:integer, unit:string
+
+
+--Tickets
+sequelize model:generate --name Tickets --attributes customer_id:integer, type_party_id:integer, table_id:integer, received_date:date, payment_date:date, customer_phone:string, customer_address:string
+
+--Orders
+sequelize model:generate --name Orders --attributes ticket_id:integer, food_id:integer, quantity:integer
+
+--Discounts
+sequelize model:generate --name Discounts --attributes name:string, amount:integer, percent:integer
+
+--Bills
+sequelize model:generate --name Bills --attributes bill_number:string, ticket_id:integer, admin_id:integer, discount_id:integer, sum_total:integer, status:boolean
+
+--Comments
+sequelize model:generate --name Comments --attributes bill_id:integer, content:string, point:integer
+
+--Feedbacks
+sequelize model:generate --name Feedbacks --attributes comment_id:integer, admin_id:integer, content:string

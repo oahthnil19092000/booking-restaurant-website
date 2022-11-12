@@ -1,0 +1,142 @@
+<div class="container">
+    <h1>Reserve Management</h1>
+    <div class="action-table">
+        <div class="spacer"></div>
+
+    </div>
+    <table mat-table [dataSource]="dataSource" #table matSort (matSortChange)="announceSortChange($event)">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id"> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="customer-name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Customer Name">
+                Customer Name
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.customer != undefined ? element.customer.name : ''}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="received-date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Received Date">
+                Received Date
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{renderDate(element.received_date)}}
+                <br>
+                {{renderTime(element.received_date)}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type-table">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Table">
+                Type Table
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.table !=null ? element.table.name : ""}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type-party">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Type Party">
+                Type Party
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.type_party != null ? element.type_party.name : ""}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>
+                Status
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{renderStatus(element.status)}}
+                <br *ngIf="element.status == 0 || element.status == 1">
+                <button *ngIf="element.status == 0" mat-raised-button (click)="toPending(element.id)">To
+                    Pending</button>
+                <button *ngIf="element.status == 1" mat-raised-button (click)="paid(element.id)">
+                    Paid
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="order-more">
+            <th mat-header-cell *matHeaderCellDef>
+                Order more
+            </th>
+            <td mat-cell *matCellDef="let element">
+
+                <button *ngIf="element.status == 1" mat-raised-button color="primary" (click)="openMenu(element.id)">
+                    Order more
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="comment">
+            <th mat-header-cell *matHeaderCellDef>
+                Comment
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.comment != null && element.comment.id == 0">
+                    No comment
+                </div>
+                <div *ngIf="element.comment != null && element.comment.id > 0">
+                    {{renderScore(element.comment)}}
+                    <br>
+                    {{renderComment(element.comment)}}
+                </div>
+
+                <div *ngIf="element.comment == null">
+                    No comment
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="feedback">
+            <th mat-header-cell *matHeaderCellDef>
+                Feedback
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div *ngIf="element.feedback != null && element.feedback.id == 0">
+                    <input type="text" value="" [id]="'feedback-' + element.id">
+                    <br>
+                    <button mat-raised-button (click)="sendFeedback(element.id)"> Send
+                        Feedback</button>
+                </div>
+                <div *ngIf="element.feedback != null && element.feedback.id > 0">
+                    {{renderAdmin(element.admin)}}
+                    <br>
+                    {{renderFeedback(element.feedback)}}
+                </div>
+                <div *ngIf="element.feedback == null">
+                    No feedback
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="detail">
+            <th mat-header-cell *matHeaderCellDef> Detail
+            </th>
+            <td mat-cell *matCellDef="let element"> <button mat-raised-button color="accent"
+                    (click)="openDetail(element.id)">Detail</button> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon *ngIf="element.status == 0" (click)="deleteOrder(element.id)">delete</mat-icon>
+
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data"</td>
+        </tr>
+    </table>
+
+    <mat-paginator #paginator [length]="length" [pageSize]="10" [pageSizeOptions]="[10]" showFirstLastButtons
+        (page)="loadPageData($event)" aria-label="Select page">
+    </mat-paginator>
+
+</div>

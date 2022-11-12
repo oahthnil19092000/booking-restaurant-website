@@ -1,0 +1,10 @@
+.active {
+  border-left: 15px solid rgb(253, 146, 63);
+  background-color: palegoldenrod;
+}
+mat-list-item {
+  border: 1px solid palegoldenrod;
+  background-color: white;
+  border-left: 15px solid white;
+  cursor: pointer;
+}

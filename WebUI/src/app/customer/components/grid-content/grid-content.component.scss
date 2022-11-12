@@ -1,0 +1,33 @@
+.grid-content {
+  display: flex;
+  justify-content: space-around;
+  .grid-content-items {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    h1 {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    div {
+      font-size: 20px;
+      text-align: justify;
+      height: 100px;
+    }
+    .button-control-content {
+      margin-top: 10px;
+      button {
+        mat-icon {
+          display: none;
+        }
+      }
+      button:hover {
+        mat-icon {
+          display: inline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>CHAT BOT</h2>
+    <div class="content">
+
+        <div *ngFor="let chatItem of chatHistory; let i = index" [class]="i % 2 ==0 ? 'bot' : 'me'">
+            <div>{{chatItem}}</div>
+        </div>
+
+    </div>
+    <div class="actions">
+        <input type="text" placeholder="Enter you message" #chatInput>
+        <button mat-raised-button color="primary" (click)="chat(chatInput)">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div>
+</div>

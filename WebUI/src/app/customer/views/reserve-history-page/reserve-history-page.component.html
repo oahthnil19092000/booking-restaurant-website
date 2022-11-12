@@ -1,0 +1,55 @@
+<section>
+    <div class="cart-container">
+        <div class="cart-infomation">
+            <div class="order-1">
+                <h1>Reserse Table History</h1>
+                <mat-list role="list">
+                    <mat-list-item role="listitem" class=" list-item-header">
+                        <div class="received-date">Received Date</div>
+                        <div class="table">Type of Table</div>
+                        <div class="type-party">Type of Party</div>
+                        <div class="status">Status</div>
+                        <div class="comment">Comment</div>
+                        <div class="view">View</div>
+                        <div class="action">Action</div>
+                    </mat-list-item>
+                    <mat-list-item role="listitem" *ngFor="let orderedItem of orderedList.rows; let i = index">
+                        <div class="received-date">
+                            {{renderDate(orderedItem.received_date)}}
+                            <br>
+                            {{renderTime(orderedItem.received_date)}}
+                        </div>
+                        <div class="table">{{orderedItem.table != null ? orderedItem.table.name : ""}}</div>
+                        <div class="type-party">{{orderedItem.type_party != null ? orderedItem.type_party.name : ""}}
+                        </div>
+                        <div class="status">
+                            {{renderStatus(orderedItem.status)}}
+                        </div>
+                        <div class="comment" *ngIf="orderedItem.comment != null && orderedItem.comment.id != 0">
+                            {{renderScore(orderedItem.comment)}}
+                            <br>
+                            {{renderComment(orderedItem.comment)}}
+                        </div>
+                        <div class="comment" *ngIf="orderedItem.comment != null && orderedItem.comment.id == 0">
+                            <button mat-raised-button type="button" color="primary"
+                                (click)="showCommentDialog(orderedItem.id)">Comment</button>
+                        </div>
+                        <div class="comment" *ngIf="orderedItem.comment == null"></div>
+
+                        <div class="view">
+                            <button mat-raised-button type="button" color="accent"
+                                *ngIf="orderedItem != null && orderedItem.id != null"
+                                (click)="openDetail(orderedItem.id)">Details</button>
+                        </div>
+                        <div class="action">
+                            <mat-icon *ngIf="orderedItem.status == 0 && checkDate(orderedItem.received_date)"
+                                (click)="cancelTicket(orderedItem.id)">delete
+                            </mat-icon>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+
+    </div>
+</section>

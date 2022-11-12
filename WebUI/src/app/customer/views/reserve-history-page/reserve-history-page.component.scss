@@ -1,0 +1,73 @@
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  .cart-container {
+    width: 95%;
+    min-height: 800px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: palegoldenrod;
+    h1 {
+      margin: 50px auto;
+      font-size: 40px;
+      font-weight: 500;
+    }
+    .cart-infomation {
+      display: flex;
+      width: 90%;
+      padding: 2.5%;
+      min-height: 600px;
+      margin: 100px;
+      background: whitesmoke;
+      .order-1 {
+        min-width: 910px;
+        flex-grow: 1;
+        mat-list {
+          padding: 10px 20px;
+          border: 2px solid palegoldenrod;
+          .list-item-header {
+            font-weight: 500;
+          }
+          mat-list-item {
+            border-bottom: 1px solid palegoldenrod;
+            .view {
+              min-width: 10%;
+              text-align: center;
+            }
+            .received-date {
+              min-width: 10%;
+              text-align: center;
+            }
+            .table {
+              flex-grow: 1;
+              text-align: center;
+            }
+            .type-party {
+              min-width: 15%;
+              text-align: center;
+            }
+            .status {
+              min-width: 10%;
+            }
+            .comment {
+              min-width: 10%;
+              text-align: center;
+            }
+            .action {
+              min-width: 5%;
+              text-align: center;
+              mat-icon {
+                color: red;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

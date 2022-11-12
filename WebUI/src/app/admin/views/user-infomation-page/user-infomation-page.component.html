@@ -1,0 +1,68 @@
+<div class="container">
+    <h1>User Infomation Management</h1>
+    <div class="content">
+        <div class="infomation-body">
+            <h1>User Infomation</h1>
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td>{{userDetail.id}}</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{{userDetail.name}}</td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td>{{userDetail.username}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{userDetail.email}}</td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td>{{renderDate(userDetail.birthday)}}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>{{userDetail.status}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-body">
+            <h1>Update User Infomation</h1>
+            <form *ngIf="isUpdate" [formGroup]="updateUserInfoForm" (ngSubmit)="onSubmit()"
+                class="update-user-info-form">
+                <input matInput type="text" formControlName="id" [value]="id.value" hidden>
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" formControlName="name" [value]="name.value">
+                    <mat-hint *ngIf="!id.valid">Phone is required!</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email" [value]="email.value">
+                    <mat-hint *ngIf="!id.valid">Phone is required!</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Birthday [MM/DD/YYYY]</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="birthday" [value]="birthday.value"
+                        [max]="maxBirthdayDate" />
+                    <mat-hint *ngIf="!birthday.valid">MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                </mat-form-field>
+                <div class="button-fields">
+                    <button mat-raised-button type="button" color="accent" (click)="hideForm()">Cancel</button>
+                    <button mat-raised-button type="submit" color="primary" [disabled]="!updateUserInfoForm.valid">
+                        Update
+                    </button>
+                </div>
+            </form>
+            <button *ngIf="!isUpdate" mat-raised-button type="button" color="accent" (click)="showForm()"> Update
+                Now</button>
+        </div>
+
+    </div>
+</div>

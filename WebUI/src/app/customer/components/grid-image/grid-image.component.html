@@ -1,0 +1,5 @@
+<mat-grid-list cols="4" rowHeight="350px">
+    <mat-grid-tile class="fade" *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+        <img [src]="tile.src">
+    </mat-grid-tile>
+</mat-grid-list>

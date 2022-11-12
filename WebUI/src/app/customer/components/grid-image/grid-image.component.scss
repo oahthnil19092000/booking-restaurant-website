@@ -1,0 +1,18 @@
+mat-grid-list {
+  width: calc(100% - 2px);
+  margin: 1px;
+}
+.fade {
+  img {
+    animation-name: fade;
+    animation-duration: 3s;
+  }
+  @keyframes fade {
+    from {
+      opacity: 0.2;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

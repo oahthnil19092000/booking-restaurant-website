@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Comment</h1>
+<div mat-dialog-content class="dialog-content">
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmit(closeButton)" class="comment-form">
+        <div class="score">
+            <mat-icon class="{{score < 1 ? 'hide' : ''}} {{getClassColor(score)}}" (click)="changeScore(1)">star
+            </mat-icon>
+            <mat-icon class="{{score < 2 ? 'hide' : ''}} {{getClassColor(score)}}" (click)="changeScore(2)">star
+            </mat-icon>
+            <mat-icon class="{{score < 3 ? 'hide' : ''}} {{getClassColor(score)}}" (click)="changeScore(3)">star
+            </mat-icon>
+            <mat-icon class="{{score < 4 ? 'hide' : ''}} {{getClassColor(score)}}" (click)="changeScore(4)">star
+            </mat-icon>
+            <mat-icon class="{{score < 5 ? 'hide' : ''}} {{getClassColor(score)}}" (click)="changeScore(5)">star
+            </mat-icon>
+            <mat-icon class="{{score >= 1 ? 'hide' : ''}}" (click)="changeScore(1)">star_border</mat-icon>
+            <mat-icon class="{{score >= 2 ? 'hide' : ''}}" (click)="changeScore(2)">star_border</mat-icon>
+            <mat-icon class="{{score >= 3 ? 'hide' : ''}}" (click)="changeScore(3)">star_border</mat-icon>
+            <mat-icon class="{{score >= 4 ? 'hide' : ''}}" (click)="changeScore(4)">star_border</mat-icon>
+            <mat-icon class="{{score >= 5 ? 'hide' : ''}}" (click)="changeScore(5)">star_border</mat-icon>
+        </div>
+        <div class="form-content">
+            <mat-form-field appearance="fill">
+                <mat-label>Comment</mat-label>
+                <textarea matInput formControlName="content"></textarea>
+                <mat-hint *ngIf="!content.valid">Comment is required!</mat-hint>
+            </mat-form-field>
+            <div class="form-action">
+                <button mat-raised-button color="accent" #closeButton mat-dialog-close>Cancel</button>
+                <button mat-raised-button color="primary" [disabled]="!commentForm.valid">Yes</button>
+            </div>
+        </div>
+    </form>
+</div>
