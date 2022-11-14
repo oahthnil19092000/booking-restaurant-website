@@ -17,9 +17,9 @@ const {
     users,
 } = require("../app/controllers/index.controller");
 
-router.post("/create", mainingredientdetails.create);
+router.post("/create", checkAdmins, mainingredientdetails.create);
 router.get("/get-list/:food_id", mainingredientdetails.getListWithFoodID);
-router.put("/update/:id", mainingredientdetails.update);
-router.delete("/delete/:id", mainingredientdetails.delete);
+router.put("/update/:id", checkAdmins, mainingredientdetails.update);
+router.delete("/delete/:id", checkAdmins, mainingredientdetails.delete);
 
 module.exports = router;

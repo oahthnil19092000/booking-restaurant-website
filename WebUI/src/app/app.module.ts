@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 import { FoodDialogComponent } from './components/food-dialog/food-dialog.component';
 import { ChartModule } from './modules/chart/chart/chart.module';
 import { NgChartsModule } from 'ng2-charts';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgChartsModule } from 'ng2-charts';
     FoodInfomationDailogComponent,
     DetailTicketDialogComponent,
     PageNotFoundComponent,
-    FoodDialogComponent
+    FoodDialogComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,

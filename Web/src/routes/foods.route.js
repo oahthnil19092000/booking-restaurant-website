@@ -24,8 +24,8 @@ router.get("/get-the-least-delicious", foods.getTheLeastDeliciousFood);
 router.get("/get-the-least-expensive", foods.getTheLeastExpensiveFood);
 router.get("/get-the-most-delicious", foods.getTheMostDeliciousFood);
 router.get("/get-the-most-expensive", foods.getTheMostExpensiveFood);
-router.post("/create", foods.create);
-router.put("/update/:id", foods.update);
-router.delete("/delete/:id", foods.delete);
+router.post("/create", checkAdmins, foods.create);
+router.put("/update/:id", checkAdmins, foods.update);
+router.delete("/delete/:id", checkAdmins, foods.delete);
 
 module.exports = router;

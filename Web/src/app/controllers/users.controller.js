@@ -52,7 +52,7 @@ class UserController {
                     }
                 } else {
                     let errorNotFound = message.errorNotFound;
-                    errorNotFound.message = errorNotFound.message.replace("{1}", "User".trim());
+                    errorNotFound.message = errorNotFound.message.replace("{1}", "User");
                     res.status(200).json(errorNotFound);
                 }
             }

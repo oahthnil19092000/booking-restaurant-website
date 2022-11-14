@@ -1,5 +1,6 @@
 const Validator = require("fastest-validator");
 const scheme = require("../businesses/validation-handler");
+const message = require("../businesses/message-handler");
 const models = require("../../../models");
 module.exports = (req, res, next) => {
     try {
@@ -7,7 +8,7 @@ module.exports = (req, res, next) => {
             refreshToken: req.headers.authorization,
         };
         const v = new Validator();
-        let validationResponse = v.validate(pagination, scheme.pageValidation);
+        let validationResponse = v.validate(user, scheme.tokenValidation);
         if (validationResponse !== true) {
             res.status(401).json(message.authError);
         } else {

@@ -19,3 +19,9 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.color-snackbar {
+  background-color: rgb(242, 76, 76);
+}
+.mat-snack-bar-container {
+  max-width: 1000px !important;
+}

@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MaterialModule } from '../modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomePageComponent } from './views/home-page/home-page.component';
 import { ListsCardFoodComponent } from './components/lists-card-food/lists-card-food.component';
 import { GridImageComponent } from './components/grid-image/grid-image.component';
@@ -23,6 +23,8 @@ import { CommentDialogComponent } from './components/comment-dialog/comment-dial
 import { ChangePasswordPageComponent } from './views/change-password-page/change-password-page.component';
 import { OrderForTableComponent } from './components/order-for-table/order-for-table.component';
 import { ChatBotComponent } from './components/chat-bot/chat-bot.component';
+import { HeadersInterceptor } from '../middlewares/headers.interceptor';
+import { ResponsesInterceptor } from '../middlewares/responses.interceptor';
 
 @NgModule({
   declarations: [
@@ -50,9 +52,20 @@ import { ChatBotComponent } from './components/chat-bot/chat-bot.component';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgImageSliderModule
+    NgImageSliderModule,
   ],
-  providers: [],
-  bootstrap: [CustomerComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeadersInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResponsesInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [CustomerComponent],
 })
-export class CustomerModule { }
+export class CustomerModule {}

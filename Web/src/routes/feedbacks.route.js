@@ -19,8 +19,8 @@ const {
 
 router.get("/get-with-comment-id/:comment_id", feedbacks.getByCommentId);
 router.get("/get-with-admin-id/:admin_id", feedbacks.getByAdminId);
-router.post("/create", feedbacks.create);
-router.put("/update/:id", feedbacks.update);
-router.delete("/delete/:id", feedbacks.delete);
+router.post("/create", checkAdmins, feedbacks.create);
+router.put("/update/:id", checkAdmins, feedbacks.update);
+router.delete("/delete/:id", checkAdmins, feedbacks.delete);
 
 module.exports = router;

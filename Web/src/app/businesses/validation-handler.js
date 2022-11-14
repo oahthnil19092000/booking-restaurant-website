@@ -30,7 +30,7 @@ module.exports = {
         status: "number|min:-1|max:5",
     },
     tokenValidation: {
-        token: "string|min:1",
+        refreshToken: "string|min:1",
     },
     bookingInfoDtoValidation: {
         customer_id: "number|min:1",
