@@ -79,4 +79,10 @@ export class FoodService {
       this.url + '/get-the-most-expensive'
     );
   }
+
+  getIdPriceWithFood(search: String): Observable<IFood | Number | any> {
+    return this.http.post<IFood | Number>(this.url + '/get-price', {
+      search: search,
+    });
+  }
 }

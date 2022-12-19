@@ -24,6 +24,7 @@ router.get("/get-the-least-delicious", foods.getTheLeastDeliciousFood);
 router.get("/get-the-least-expensive", foods.getTheLeastExpensiveFood);
 router.get("/get-the-most-delicious", foods.getTheMostDeliciousFood);
 router.get("/get-the-most-expensive", foods.getTheMostExpensiveFood);
+router.post("/get-price", foods.getIdPriceWithFood);
 router.post("/create", checkAdmins, foods.create);
 router.put("/update/:id", checkAdmins, foods.update);
 router.delete("/delete/:id", checkAdmins, foods.delete);

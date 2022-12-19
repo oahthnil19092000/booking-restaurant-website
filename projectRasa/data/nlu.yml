@@ -177,11 +177,12 @@ nlu:
 
   - intent: ask_price
     examples: |
-      - nhà hàng phụ hợp với đối tượng nào
-      - nhà hàng phụ hợp đối tượng nào
-      - phụ hợp đối tượng nào
-      - đối tượng nào phụ hợp
-      - đối tượng nào
+      - giá của món ăn
+      - giá  món ăn
+      - giá của  món ăn là
+      - gia cua mon an
+      - gia mon an
+      - gia cua mon an la
 
   - intent: ask_expensiveFood
     examples: |
@@ -216,6 +217,13 @@ nlu:
       - món dở nhất?
       - tệ nhất?
       - dở nhất?
+
+  - intent: ask_ingredient
+    examples: |
+      - các món ăn có nguyên liệu 
+      - món ăn có nguyên liệu là
+      - món ăn có nguyên liệu
+      - có nguyên liệu là
 
   - intent: ask_address
     examples: |

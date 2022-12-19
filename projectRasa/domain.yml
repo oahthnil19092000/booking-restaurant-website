@@ -19,6 +19,7 @@ intents:
   - ask_cheapestFood
   - ask_bestFood
   - ask_worstFood
+  - ask_ingredient
   - ask_address
   - thanhtoan_hinhthuc
 
@@ -80,7 +81,7 @@ responses:
     - text: "Chọn đặt bàn -> Điền thông tin đặt bàn -> Nhấn nút đặt bàn -> Chọn món ăn cho bàn"
 
   utter_price:
-    - text: "Giá phù hợp với mọi loại đối tượng tiêu dùng"
+    - text: "<price-food>"
 
   utter_expensiveFood:
     - text: "<expensive-food>"
@@ -93,6 +94,9 @@ responses:
 
   utter_worstFood:
     - text: "<worst-food>"
+
+  utter_ingredient:
+    - text: "<food-list-with-ingredient>"
 
   utter_thank:
     - text: "Cảm ơn bạn"

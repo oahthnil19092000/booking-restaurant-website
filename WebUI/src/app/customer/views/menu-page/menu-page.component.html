@@ -2,14 +2,15 @@
     <u class="header-menu">Menu</u>
     <div class="action-menu">
         <mat-form-field appearance="standard">
-            <mat-label>Search Name</mat-label>
-            <input matInput placeholder="Search Name" #input (blur)="search(input)">
+            <mat-label>Search with name</mat-label>
+            <input matInput placeholder="Enter name of food" #input (blur)="search(input)">
             <mat-icon matSuffix (click)="search(input)">search</mat-icon>
         </mat-form-field>
         <div class="spacer"></div>
         <mat-form-field appearance="standard">
-            <mat-label>Ingredient</mat-label>
-            <input type="text" matInput [formControl]="myControl" #inputIngredient [matAutocomplete]="auto">
+            <mat-label>Search with Ingredient</mat-label>
+            <input type="text" placeholder="Enter name of ingredient" matInput [formControl]="myControl"
+                #inputIngredient [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                 <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                     {{option.name}}

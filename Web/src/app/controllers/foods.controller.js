@@ -209,6 +209,21 @@ class FoodController {
         }
     }
 
+    async getIdPriceWithFood(req, res) {
+        let search_name = req.body.search;
+        let order = null;
+        let pagination = {
+            page: 1,
+            size: 1,
+        };
+        let food = await foodService.getList(pagination, order, search_name);
+        if (food != null) {
+            res.status(200).json(food.rows[0]);
+        } else {
+            res.status(200).json(-1);
+        }
+    }
+
     async detail(req, res) {
         try {
             let id = req.params.id ?? -1;

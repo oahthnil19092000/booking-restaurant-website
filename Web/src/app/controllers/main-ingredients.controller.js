@@ -73,6 +73,20 @@ class MainIngredientController {
             res.status(500).json(message.APIErrorServer);
         }
     }
+    async getIdWithIngredientName (req, res) {
+        let search_name = req.body.search;
+        let order = null;
+        let pagination = {
+            page: 1,
+            size: 1,
+        };
+        let mainIngredient = await mainIngredientService.getList(pagination, order, search_name);
+        if (mainIngredient != null) {
+            res.status(200).json(mainIngredient.rows[0].id);
+        } else {
+            res.status(200).json(-1);
+        }
+    }
     async getList(req, res) {
         try {
             let params = req.query;

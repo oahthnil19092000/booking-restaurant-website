@@ -7,13 +7,15 @@ import { IBillResponse } from 'src/app/models/bill-response';
 import { IBill } from 'src/app/models/bill';
 @Injectable()
 export class BillService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   url = new ConfigService().url + '/api/bill';
 
   getByTicketId(ticket_id: Number): Observable<IBill | IMessage | any> {
     return this.http.get<IBill | IMessage>(this.url + '/is-paid/' + ticket_id);
   }
-
+  getById(bill_id: Number): Observable<IBill | IMessage | any> {
+    return this.http.get<IBill | IMessage>(this.url + '/get/' + bill_id);
+  }
   getTotalRevenue(): Observable<Number | any> {
     return this.http.get<Number>(this.url + '/get-total-revenue');
   }
@@ -30,12 +32,15 @@ export class BillService {
     return this.http.get<number[]>(this.url + '/get-list-total-revenue');
   }
 
-
   getTotolRevenueOfOrderInCurrentMonth(): Observable<number[] | any> {
     return this.http.get<number[]>(this.url + '/get-total-revenue-of-order');
   }
 
-  createBill(ticket_id: Number, admin_id: Number = 0, discount_id: Number = 0): Observable<IBillResponse | IMessage | any> {
+  createBill(
+    ticket_id: Number,
+    admin_id: Number = 0,
+    discount_id: Number = 0
+  ): Observable<IBillResponse | IMessage | any> {
     let bill = {
       ticket_id: ticket_id,
       admin_id: admin_id,

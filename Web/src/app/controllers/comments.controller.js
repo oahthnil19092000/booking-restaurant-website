@@ -70,6 +70,19 @@ class CommentController {
         }
     }
 
+    async getAll(req, res) {
+        try {
+            let commentList = await commentService.getAll();
+            if (commentList != null) {
+                res.status(200).json(commentList);
+            } else {
+                res.status(500).json(message.APIErrorServer);
+            }
+        } catch (err) {
+            res.status(500).json(message.APIErrorServer);
+        }
+    }
+
     async update(req, res) {
         try {
             let id = req.params.id ?? -1;

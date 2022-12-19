@@ -25,6 +25,7 @@ import { OrderForTableComponent } from './components/order-for-table/order-for-t
 import { ChatBotComponent } from './components/chat-bot/chat-bot.component';
 import { HeadersInterceptor } from '../middlewares/headers.interceptor';
 import { ResponsesInterceptor } from '../middlewares/responses.interceptor';
+import { EvaluateComponent } from './components/evaluate/evaluate.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ResponsesInterceptor } from '../middlewares/responses.interceptor';
     ChangePasswordPageComponent,
     OrderForTableComponent,
     ChatBotComponent,
+    EvaluateComponent,
   ],
   imports: [
     CommonModule,

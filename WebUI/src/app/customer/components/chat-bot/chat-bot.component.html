@@ -1,9 +1,12 @@
 <div class="container">
     <h2>CHAT BOT</h2>
+    <div style="flex-grow: 1;"></div>
     <div class="content">
 
         <div *ngFor="let chatItem of chatHistory; let i = index" [class]="i % 2 ==0 ? 'bot' : 'me'">
-            <div>{{chatItem}}</div>
+            <div class="chat-items">
+                {{chatItem}}
+            </div>
         </div>
 
     </div>

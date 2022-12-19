@@ -24,11 +24,13 @@
     right: 30px;
     background-color: white;
     z-index: 3;
+    cursor: pointer;
   }
   .go-top-icon {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    cursor: pointer;
     mat-icon {
       font-size: 40px;
       height: 40px;
@@ -37,6 +39,7 @@
     }
     img {
       border-radius: 30px;
+      cursor: pointer;
     }
   }
 }

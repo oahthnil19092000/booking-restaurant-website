@@ -39,7 +39,7 @@
                 </mat-select>
             </mat-form-field>
             <div class="button-fields">
-                <button mat-raised-button color="accent" #closeButton mat-dialog-close>Cancle</button>
+                <button mat-raised-button color="accent" #closeButton mat-dialog-close>Cancel</button>
                 <button mat-raised-button color="primary"
                     [disabled]="!addFoodForm.valid || !mainIngredientForm.valid || ((file_base64.value == '' && is_url.value == false) || (url.value == '' && is_url.value == true))">
                     {{isCreate ? 'Create Food' : 'Update Food'}}

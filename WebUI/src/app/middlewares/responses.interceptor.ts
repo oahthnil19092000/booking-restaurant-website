@@ -22,10 +22,10 @@ export class ResponsesInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status >= 400) {
-          this._snackBar.openFromComponent(SnackBarComponent, {
-            duration: 2 * 1000,
-            panelClass: ['color-snackbar'],
-          });
+          // this._snackBar.openFromComponent(SnackBarComponent, {
+          //   duration: 2 * 1000,
+          //   panelClass: ['color-snackbar'],
+          // });
         }
         return throwError('');
       })

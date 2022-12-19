@@ -151,6 +151,30 @@ class BillController {
             res.status(500).json(message.APIErrorServer);
         }
     }
+    async getById(req, res) {
+        try {
+            let id = req.params.id ?? -1;
+            let billId = {
+                id: parseInt(id),
+            };
+            const v = new Validator();
+            let validationResponse = v.validate(billId, scheme.idValidation);
+            if (validationResponse !== true) {
+                res.status(400).json(message.errorIdFieldIsNull);
+            } else {
+                let bill = await billService.getById(billId.id);
+                if (bill != null) {
+                    res.status(200).json(bill);
+                } else {
+                    let errorNotFound = message.errorNotFound;
+                    errorNotFound.message = errorNotFound.message.replace("{1}", "Bill");
+                    res.status(200).json(errorNotFound);
+                }
+            }
+        } catch (err) {
+            res.status(500).json(message.APIErrorServer);
+        }
+    }
     async detail(req, res) {
         try {
             let id = req.params.id ?? -1;
@@ -307,7 +331,7 @@ class BillController {
             let date = new Date();
             let thisMonth = date.getMonth();
             let totolRevenueList = [];
-            for (let i = 1; i <= thisMonth; i++) {
+            for (let i = 0; i <= thisMonth; i++) {
                 let totolRevenueItem = await billService.getTotolRevenueAtMonth(i);
                 totolRevenueList.push(totolRevenueItem != null ? parseInt(totolRevenueItem) : 0);
             }

@@ -13,12 +13,18 @@ export class CommentService {
   getCommentWithBillId(bill_id: Number): Observable<IComment | IMessage | any> {
     return this.http.get<IComment | IMessage>(this.url + '/get/' + bill_id);
   }
+  getAllComment(): Observable<IComment[] | IMessage | any> {
+    return this.http.get<IComment[] | IMessage>(this.url + '/get-all');
+  }
   createNewComment(comment: ICommentCreate): Observable<IMessage | any> {
     return this.http.post<IMessage>(this.url + '/create/', comment);
   }
 
-  updateComment(id: Number, comment: ICommentCreate) : Observable< IComment | IMessage | any> {
-    return this.http.put<IComment | IMessage >(
+  updateComment(
+    id: Number,
+    comment: ICommentCreate
+  ): Observable<IComment | IMessage | any> {
+    return this.http.put<IComment | IMessage>(
       this.url + '/update/' + id,
       comment
     );

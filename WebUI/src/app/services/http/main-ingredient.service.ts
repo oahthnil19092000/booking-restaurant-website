@@ -69,4 +69,13 @@ export class MainIngredientService {
       this.url + '/delete/' + main_ingredient_id
     );
   }
+
+  getIdWithIngredientName(search: String): Observable<Number | IMessage | any> {
+    return this.http.post<Number | IMessage>(
+      this.url + '/get-id-with-ingredient-name',
+      {
+        search: search,
+      }
+    );
+  }
 }

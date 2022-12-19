@@ -26,6 +26,7 @@ router.get("/get-list-total-revenue", bills.getTotolRevenueListOfYear);
 router.get("/get-best-seller", bills.getTheBestSellingProductInCurrentMonth);
 router.get("/get-most-table-type-booked", bills.getTheMostBookedTableTypeInCurrentMonth);
 router.get("/detail/:id", bills.detail);
+router.get("/get/:id", bills.getById);
 router.post("/create", bills.create);
 router.put("/payment/:id", bills.payment);
 router.delete("/delete/:id", bills.delete);

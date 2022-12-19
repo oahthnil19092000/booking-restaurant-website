@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="score-average">
+        <mat-icon class="{{averageScore < 1 ? 'hide' : ''}} {{getClassColor(averageScore)}}">star
+        </mat-icon>
+        <mat-icon class="{{averageScore < 2 ? 'hide' : ''}} {{getClassColor(averageScore)}}">star
+        </mat-icon>
+        <mat-icon class="{{averageScore < 3 ? 'hide' : ''}} {{getClassColor(averageScore)}}">star
+        </mat-icon>
+        <mat-icon class="{{averageScore < 4 ? 'hide' : ''}} {{getClassColor(averageScore)}}">star
+        </mat-icon>
+        <mat-icon class="{{averageScore < 5 ? 'hide' : ''}} {{getClassColor(averageScore)}}">star
+        </mat-icon>
+        <mat-icon class="{{averageScore >= 1 ? 'hide' : ''}}">star_border</mat-icon>
+        <mat-icon class="{{averageScore >= 2 ? 'hide' : ''}}">star_border</mat-icon>
+        <mat-icon class="{{averageScore >= 3 ? 'hide' : ''}}">star_border</mat-icon>
+        <mat-icon class="{{averageScore >= 4 ? 'hide' : ''}}">star_border</mat-icon>
+        <mat-icon class="{{averageScore >= 5 ? 'hide' : ''}}">star_border</mat-icon>
+    </div>
+    <div class="score-average">
+        <h1>This a evaluate of {{numberOfComment}} customers!</h1>
+    </div>
+    <div class="content">
+        <div class="comment-container" *ngFor="let commentItem of commentList">
+            <div class="info">
+                <div class="name-customer">
+                    {{commentItem.customer.name}}
+                </div>
+                <div class="score-item">
+                    <mat-icon
+                        class="{{commentItem.comment.point < 1 ? 'hide' : ''}} {{getClassColor(commentItem.comment.point)}}">
+                        star
+                    </mat-icon>
+                    <mat-icon
+                        class="{{commentItem.comment.point < 2 ? 'hide' : ''}} {{getClassColor(commentItem.comment.point)}}">
+                        star
+                    </mat-icon>
+                    <mat-icon
+                        class="{{commentItem.comment.point < 3 ? 'hide' : ''}} {{getClassColor(commentItem.comment.point)}}">
+                        star
+                    </mat-icon>
+                    <mat-icon
+                        class="{{commentItem.comment.point < 4 ? 'hide' : ''}} {{getClassColor(commentItem.comment.point)}}">
+                        star
+                    </mat-icon>
+                    <mat-icon
+                        class="{{commentItem.comment.point < 5 ? 'hide' : ''}} {{getClassColor(commentItem.comment.point)}}">
+                        star
+                    </mat-icon>
+                    <mat-icon class="{{commentItem.comment.point >= 1 ? 'hide' : ''}}">star_border</mat-icon>
+                    <mat-icon class="{{commentItem.comment.point >= 2 ? 'hide' : ''}}">star_border</mat-icon>
+                    <mat-icon class="{{commentItem.comment.point >= 3 ? 'hide' : ''}}">star_border</mat-icon>
+                    <mat-icon class="{{commentItem.comment.point >= 4 ? 'hide' : ''}}">star_border</mat-icon>
+                    <mat-icon class="{{commentItem.comment.point >= 5 ? 'hide' : ''}}">star_border</mat-icon>
+                </div>
+            </div>
+            <div class="comment-content">
+                {{commentItem.comment.content}}
+            </div>
+            <div class="comment-create-at">
+                {{renderTime(commentItem.comment.createdAt)}} {{renderDate(commentItem.comment.createdAt)}}
+            </div>
+            <div class="admin-feedback" *ngIf="commentItem.feedback != null">
+                <div class="admin-name">
+                    {{commentItem.admin?.name}}
+                </div>
+                <div class="feedback-content">
+                    {{commentItem.feedback.content}}
+                </div>
+                <div class="feedback-create-at">
+                    {{renderTime(commentItem.feedback.createdAt)}} {{renderDate(commentItem.feedback.createdAt)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

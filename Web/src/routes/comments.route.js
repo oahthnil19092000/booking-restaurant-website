@@ -18,6 +18,7 @@ const {
 } = require("../app/controllers/index.controller");
 
 router.get("/get/:bill_id", comments.getByBillId);
+router.get("/get-all", comments.getAll);
 router.post("/create", comments.create);
 router.put("/update/:id", comments.update);
 router.delete("/delete/:id", comments.delete);

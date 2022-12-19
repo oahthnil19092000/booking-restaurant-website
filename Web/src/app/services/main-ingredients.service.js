@@ -54,12 +54,22 @@ class MainIngredientService {
 					status : status
 				};
 			}
-			let list = await this.model.findAndCountAll({
-				where  : where,
-				order  : [ order ],
-				limit  : pagination.size,
-				offset : (pagination.page - 1) * pagination.size
-			});
+			let list = null;
+			if(order != null){
+				list = await this.model.findAndCountAll({
+					where  : where,
+					order  : [ order ],
+					limit  : pagination.size,
+					offset : (pagination.page - 1) * pagination.size
+				});
+			} else {
+				list = await this.model.findAndCountAll({
+					where  : where,
+					limit  : pagination.size,
+					offset : (pagination.page - 1) * pagination.size
+				});
+			}
+			
 			list.page = pagination.page;
 			list.size = pagination.size;
 			return list;

@@ -25,6 +25,16 @@ class CommentService {
         }
     }
 
+    async getAll() {
+		
+		try {
+			let list = await this.model.findAll({
+			});
+			return list;
+		} catch (err) {
+			return null;
+		}
+	} 
     async getByBillId(bill_id) {
         try {
             let comment = await this.model.findOne({ where: { bill_id: bill_id } });
